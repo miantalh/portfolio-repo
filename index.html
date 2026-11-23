@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="color-scheme" content="light dark" />
+<meta name="description" content="Mian Talha — Creative Developer & Designer. Interactive wedding cards, web apps and creative tools. Contact: mian91032@gmail.com" />
+<link rel="icon" href="data:," />
+<title>Mian Talha — Creative Developer & Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F4EF;
+    --bg-2:#EFECE4;
+    --surface:#FFFFFF;
+    --surface-2:#FBFAF7;
+    --ink:#131714;
+    --ink-2:#3A403B;
+    --muted:#6B726C;
+    --line:#E2DDD1;
+    --line-2:#D6D0C2;
+    --green:#123B2A;
+    --green-2:#1A4D36;
+    --gold:#C19A3E;
+    --gold-2:#E8D9A8;
+    --gold-bg:#FFF8E1;
+    --chip:#EDE9DE;
+    --shadow:0 10px 30px rgba(18,30,22,.08);
+    --shadow-lg:0 20px 50px rgba(18,30,22,.12);
+    --radius:20px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0E1210;
+      --bg-2:#121714;
+      --surface:#171C19;
+      --surface-2:#1B211E;
+      --ink:#F2EFE6;
+      --ink-2:#D8D5CB;
+      --muted:#9AA39C;
+      --line:#26302A;
+      --line-2:#2F3A33;
+      --green:#E8D9A8;
+      --green-2:#0F2E20;
+      --gold:#D4B45A;
+      --gold-2:#3A2F12;
+      --gold-bg:#1E1A0E;
+      --chip:#232B26;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --shadow-lg:0 20px 50px rgba(0,0,0,.45);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+  body{margin:0; background:var(--bg); color:var(--ink); font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,sans-serif; line-height:1.6; -webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  button,[role="button"]{min-height:44px}
+  .wrap{max-width:1120px; margin:0 auto; padding:0 20px}
+  @media(min-width:768px){ .wrap{padding:0 32px} }
+
+  /* Header */
+  header{position:sticky; top:0; z-index:40; backdrop-filter:blur(14px); background:color-mix(in srgb, var(--bg) 82%, transparent); border-bottom:1px solid var(--line)}
+  .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:68px}
+  .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+  .mark{width:40px; height:40px; border-radius:11px; background:var(--green); color:#F5EFD6; display:grid; place-items:center; font-family:"Sora",sans-serif; font-weight:800; letter-spacing:-.02em; font-size:15px; flex-shrink:0}
+  @media (prefers-color-scheme: dark){ .mark{background:#E8D9A8; color:#12241A} }
+  .brand b{font-family:"Sora",sans-serif; font-size:16px; letter-spacing:-.02em; line-height:1}
+  .brand span{display:block; font-family:"JetBrains Mono",monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-top:3px; font-weight:500}
+  .nav-links{display:none; gap:6px; align-items:center}
+  @media(min-width:760px){ .nav-links{display:flex} }
+  .nav-links a{text-decoration:none; font-size:14px; font-weight:600; color:var(--ink-2); padding:10px 14px; border-radius:999px}
+  .nav-links a:hover{background:var(--chip)}
+  .nav-cta{display:inline-flex; align-items:center; gap:8px; text-decoration:none; background:var(--ink); color:var(--bg); font-weight:700; font-size:13.5px; padding:0 18px; height:42px; border-radius:999px; white-space:nowrap}
+  .nav-cta:hover{opacity:.92}
+  .dot{width:7px; height:7px; border-radius:50%; background:#2ECC71; box-shadow:0 0 0 4px rgba(46,204,113,.18); flex-shrink:0}
+
+  /* Hero */
+  .hero{padding:48px 0 28px}
+  @media(min-width:768px){ .hero{padding:72px 0 36px} }
+  .hero-grid{display:grid; gap:28px}
+  @media(min-width:900px){ .hero-grid{grid-template-columns:1.35fr .65fr; gap:40px; align-items:start} }
+  .avail{display:inline-flex; align-items:center; gap:9px; background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:8px 14px 8px 10px; font-size:13px; font-weight:600; color:var(--ink-2); box-shadow:var(--shadow)}
+  .hero h1{font-family:"Sora",sans-serif; font-size:clamp(42px,7vw,72px); line-height:.95; letter-spacing:-.04em; margin:20px 0 0; font-weight:800}
+  .hero h1 em{font-style:normal; color:var(--gold); position:relative}
+  .hero h1 em::after{content:""; position:absolute; left:0; right:0; bottom:4px; height:10px; background:var(--gold-2); z-index:-1; border-radius:999px; opacity:.7}
+  .role{font-family:"JetBrains Mono",monospace; font-size:13px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-top:16px; display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+  .role i{font-style:normal; width:22px; height:1px; background:var(--line-2); display:inline-block}
+  .lead{font-size:18px; line-height:1.65; color:var(--ink-2); max-width:620px; margin:18px 0 0}
+  .lead strong{color:var(--ink)}
+  .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px}
+  .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; text-decoration:none; font-weight:700; font-size:15px; padding:0 22px; height:52px; border-radius:999px; border:1px solid transparent; cursor:pointer}
+  .btn-primary{background:var(--green); color:#FFFDF2}
+  @media (prefers-color-scheme: dark){ .btn-primary{background:#E8D9A8; color:#131A15} }
+  .btn-primary:hover{transform:translateY(-1px); box-shadow:var(--shadow-lg)}
+  .btn-ghost{background:var(--surface); border-color:var(--line); color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--line-2)}
+  .hero-card{background:var(--surface); border:1px solid var(--line); border-radius:24px; padding:22px; box-shadow:var(--shadow)}
+  .hero-card h3{margin:0; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .email-big{display:block; margin-top:12px; font-family:"Sora",sans-serif; font-weight:700; font-size:17px; letter-spacing:-.02em; text-decoration:none; word-break:break-all; line-height:1.3}
+  .email-big:hover{text-decoration:underline; text-underline-offset:4px}
+  .copy-row{display:flex; gap:10px; margin-top:16px}
+  .copy-btn{flex:1; display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--bg-2); border:1px solid var(--line); border-radius:12px; font-weight:700; font-size:14px; cursor:pointer; color:var(--ink); padding:0 14px}
+  .copy-btn:active{transform:scale(.98)}
+  .loc{display:flex; gap:10px; margin-top:18px; padding-top:18px; border-top:1px dashed var(--line)}
+  .loc p{margin:0; font-size:13.5px; color:var(--muted); line-height:1.5}
+  .loc p b{color:var(--ink); display:block; font-size:14px}
+  .stats{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-top:28px}
+  @media(max-width:560px){ .stats{grid-template-columns:1fr 1fr 1fr; gap:8px} .stat{padding:14px 12px!important} .stat b{font-size:22px!important} }
+  .stat{background:var(--surface); border:1px solid var(--line); border-radius:18px; padding:18px}
+  .stat b{font-family:"Sora",sans-serif; font-size:28px; letter-spacing:-.03em; line-height:1; display:block}
+  .stat span{font-size:12.5px; color:var(--muted); font-weight:600; line-height:1.4; display:block; margin-top:6px}
+
+  /* Marquee */
+  .marquee{border-top:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--surface-2); overflow:hidden; margin-top:36px}
+  .marquee-track{display:flex; gap:0; width:max-content; animation:scroll 28s linear infinite; padding:14px 0}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  .marquee span{font-family:"JetBrains Mono",monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); padding:0 18px; white-space:nowrap; display:flex; align-items:center; gap:18px}
+  .marquee span::after{content:"✦"; color:var(--gold); font-size:10px}
+
+  section{padding:56px 0}
+  @media(min-width:768px){ section{padding:72px 0} }
+  .sec-head{display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:16px; margin-bottom:28px}
+  .sec-head h2{font-family:"Sora",sans-serif; font-size:clamp(28px,4vw,40px); letter-spacing:-.03em; line-height:1; margin:8px 0 0}
+  .kicker{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; display:flex; align-items:center; gap:10px}
+  .kicker::before{content:""; width:28px; height:1px; background:var(--gold); display:inline-block}
+  .sec-head p{color:var(--muted); max-width:480px; margin:0; font-size:15px; line-height:1.6}
+
+  /* Filters */
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:22px}
+  .filter{border:1px solid var(--line); background:var(--surface); color:var(--ink-2); padding:0 18px; height:42px; border-radius:999px; font-weight:700; font-size:14px; cursor:pointer}
+  .filter.active{background:var(--ink); color:var(--bg); border-color:var(--ink)}
+  .filter:hover{border-color:var(--ink)}
+
+  /* Projects */
+  .grid{display:grid; gap:18px}
+  @media(min-width:700px){ .grid{grid-template-columns:1fr 1fr} }
+  @media(min-width:1024px){ .grid{grid-template-columns:1fr 1fr 1fr} }
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:22px; overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+  .card:hover{transform:translateY(-4px); box-shadow:var(--shadow-lg); border-color:var(--line-2)}
+  .card.hidden{display:none}
+  .visual{height:168px; position:relative; overflow:hidden; display:flex; align-items:flex-end; padding:18px}
+  .visual::before{content:""; position:absolute; inset:0; opacity:.9}
+  .v-green::before{background:radial-gradient(600px 200px at 20% 0%, #2A6B4A 0%, transparent 60%), linear-gradient(135deg,#0F2E20,#1A4D36)}
+  .v-gold::before{background:radial-gradient(500px 200px at 80% 0%, #FFE9A8 0%, transparent 55%), linear-gradient(135deg,#3A2A0A,#7A5A12)}
+  .v-food::before{background:radial-gradient(500px 200px at 20% 0%, #FF9A5A 0%, transparent 55%), linear-gradient(135deg,#3D1E0A,#7A2E12)}
+  .v-tool::before{background:radial-gradient(500px 200px at 80% 0%, #7DD3C8 0%, transparent 55%), linear-gradient(135deg,#0E2A2A,#174A4A)}
+  .v-slate::before{background:radial-gradient(500px 200px at 20% 0%, #A8B8FF 0%, transparent 55%), linear-gradient(135deg,#1B2340,#2E3A6B)}
+  .v-plum::before{background:radial-gradient(500px 200px at 80% 0%, #E8A8C8 0%, transparent 55%), linear-gradient(135deg,#2E1224,#5A2348)}
+  .visual-badge{position:relative; z-index:1; background:rgba(255,255,255,.14); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.22); color:#fff; border-radius:999px; padding:7px 12px; font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; display:inline-flex; gap:8px; align-items:center}
+  .visual-icon{position:absolute; right:18px; top:18px; z-index:1; width:44px; height:44px; border-radius:12px; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.2); display:grid; place-items:center; color:#fff; font-size:20px}
+  .card-body{padding:20px; display:flex; flex-direction:column; gap:10px; flex:1}
+  .card-top{display:flex; justify-content:space-between; gap:12px; align-items:start}
+  .card h3{margin:0; font-family:"Sora",sans-serif; font-size:19px; letter-spacing:-.02em; line-height:1.2}
+  .year{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--muted); white-space:nowrap; margin-top:2px}
+  .card p{margin:0; color:var(--muted); font-size:14.5px; line-height:1.65; flex:1}
+  .tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:4px}
+  .tag{font-size:12px; font-weight:700; background:var(--chip); color:var(--ink-2); padding:6px 10px; border-radius:999px}
+  .card-link{display:inline-flex; align-items:center; gap:8px; font-weight:800; font-size:14px; text-decoration:none; margin-top:8px; padding:10px 0 2px; min-height:36px}
+  .card-link:hover{gap:12px}
+  .card-link span{transition:transform .2s}
+  .note{margin-top:16px; background:var(--gold-bg); border:1px solid color-mix(in srgb, var(--gold) 28%, var(--line)); border-radius:16px; padding:16px 18px; font-size:14px; color:var(--ink-2); line-height:1.6}
+  .note b{color:var(--ink)}
+
+  /* Services */
+  .services{display:grid; gap:16px}
+  @media(min-width:800px){ .services{grid-template-columns:repeat(3,1fr)} }
+  .svc{background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:24px}
+  .svc-num{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--gold); font-weight:700; letter-spacing:.1em}
+  .svc h3{font-family:"Sora",sans-serif; font-size:20px; letter-spacing:-.02em; margin:12px 0 8px; line-height:1.2}
+  .svc p{margin:0; color:var(--muted); font-size:14.5px; line-height:1.65}
+  .svc ul{margin:16px 0 0; padding:0; list-style:none; display:grid; gap:9px}
+  .svc li{font-size:14px; font-weight:600; color:var(--ink-2); display:flex; gap:10px; align-items:start; line-height:1.45}
+  .svc li::before{content:"✓"; color:var(--gold); font-weight:800; flex-shrink:0}
+
+  /* Stack + About */
+  .two-col{display:grid; gap:18px}
+  @media(min-width:860px){ .two-col{grid-template-columns:1.1fr .9fr} }
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:22px; padding:26px}
+  .panel h3{margin:0 0 6px; font-family:"Sora",sans-serif; font-size:22px; letter-spacing:-.02em}
+  .panel p{color:var(--muted); font-size:15px; line-height:1.7; margin:0}
+  .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+  .chip{border:1px solid var(--line); background:var(--surface-2); padding:9px 13px; border-radius:999px; font-size:13.5px; font-weight:700}
+  .process{display:grid; gap:0; margin-top:8px}
+  .step{display:flex; gap:16px; padding:16px 0; border-bottom:1px dashed var(--line)}
+  .step:last-child{border-bottom:0; padding-bottom:0}
+  .step:first-child{padding-top:6px}
+  .step-n{width:36px; height:36px; border-radius:50%; background:var(--ink); color:var(--bg); display:grid; place-items:center; font-family:"JetBrains Mono",monospace; font-size:13px; font-weight:700; flex-shrink:0}
+  .step b{display:block; font-size:15px}
+  .step span{font-size:14px; color:var(--muted); line-height:1.55; display:block; margin-top:2px}
+
+  /* Contact */
+  .contact{background:var(--green); color:#FFFBEA; border-radius:28px; padding:32px 24px; position:relative; overflow:hidden}
+  @media(min-width:768px){ .contact{padding:48px 44px} }
+  @media (prefers-color-scheme: dark){ .contact{background:#1A2E22; border:1px solid var(--line)} }
+  .contact::after{content:"MT"; position:absolute; right:-10px; bottom:-42px; font-family:"Sora",sans-serif; font-weight:800; font-size:180px; line-height:1; opacity:.07; letter-spacing:-.05em; pointer-events:none}
+  .contact h2{font-family:"Sora",sans-serif; font-size:clamp(30px,5vw,46px); letter-spacing:-.03em; line-height:1.05; margin:10px 0 0; max-width:560px}
+  .contact .kicker{color:#E8D9A8}
+  .contact .kicker::before{background:#E8D9A8}
+  .contact p{color:rgba(255,251,234,.78); max-width:540px; font-size:16px; line-height:1.65; margin:14px 0 0; position:relative; z-index:1}
+  .contact-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top:26px; position:relative; z-index:1}
+  .btn-white{background:#FFFBEA; color:#12241A}
+  .btn-outline{background:transparent; border-color:rgba(255,251,234,.35); color:#FFFBEA}
+  .contact-mail{margin-top:22px; position:relative; z-index:1; display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+  .contact-mail a{font-family:"JetBrains Mono",monospace; font-size:15px; font-weight:600; text-decoration:underline; text-underline-offset:4px; padding:10px 0}
+  .toast{position:fixed; left:50%; bottom:22px; transform:translateX(-50%) translateY(20px); background:var(--ink); color:var(--bg); padding:12px 18px; border-radius:999px; font-weight:700; font-size:14px; opacity:0; pointer-events:none; transition:.25s; z-index:60; box-shadow:var(--shadow-lg); white-space:nowrap}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0)}
+  footer{padding:28px 0 36px; border-top:1px solid var(--line); margin-top:8px}
+  .foot{display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; align-items:center}
+  .foot p{margin:0; font-size:13px; color:var(--muted)}
+  .foot a{font-weight:700; text-decoration:none}
+  .reveal{opacity:1; transform:none}
+  .reveal.in{opacity:1; transform:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Mian Talha home">
+      <span class="mark">MT</span>
+      <span><b>Mian Talha</b><span>Developer · Designer</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="mailto:mian91032@gmail.com"><span class="dot"></span> Hire Me</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="avail"><span class="dot"></span> Available for new projects</span>
+        <h1>Mian Talha<br>builds <em>digital</em><br>experiences.</h1>
+        <div class="role"><span>Creative Developer</span><i></i><span>Graphic Designer</span><i></i><span>Pakistan → Worldwide</span></div>
+        <p class="lead">I design and build <strong>interactive wedding invitations, live business websites and practical creative tools</strong> — from a tap-to-open ShaadiNama card to a QR menu customers order from on WhatsApp. Clean design, real function, no fluff.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#work">See My Work ↓</a>
+          <a class="btn btn-ghost" href="mailto:mian91032@gmail.com">✉ &nbsp;mian91032@gmail.com</a>
+        </div>
+        <div class="stats">
+          <div class="stat"><b>10</b><span>Wedding card themes designed</span></div>
+          <div class="stat"><b>06+</b><span>Live products &amp; tools shipped</span></div>
+          <div class="stat"><b>100%</b><span>Custom — no copied templates</span></div>
+        </div>
+      </div>
+
+      <aside class="hero-card" aria-label="Contact card">
+        <h3>✦ &nbsp;Get in touch</h3>
+        <a class="email-big" href="mailto:mian91032@gmail.com">mian91032@gmail.com</a>
+        <div class="copy-row">
+          <button class="copy-btn" id="copyBtn" type="button">⧉ Copy Email</button>
+          <a class="copy-btn" href="mailto:mian91032@gmail.com" style="text-decoration:none">Send Email →</a>
+        </div>
+        <div class="loc">
+          <span style="font-size:20px">◎</span>
+          <p><b>Based in Pakistan</b>Working remotely with clients everywhere — replies usually within a day.</p>
+        </div>
+        <div class="loc" style="margin-top:0">
+          <span style="font-size:20px">⬢</span>
+          <p><b>Currently focused on</b>ShaadiNama interactive cards · Web apps · CorelDRAW tools</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <span>Interactive Invitations</span><span>Web Development</span><span>Graphic Design</span><span>CorelDRAW</span><span>Photoshop</span><span>QR Menus</span><span>AI Tools</span><span>UI Design</span>
+      <span>Interactive Invitations</span><span>Web Development</span><span>Graphic Design</span><span>CorelDRAW</span><span>Photoshop</span><span>QR Menus</span><span>AI Tools</span><span>UI Design</span>
+    </div>
+  </div>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="kicker">Selected Work</div>
+          <h2>Real projects,<br>real people use them.</h2>
+        </div>
+        <p>Har project asal client ya asal problem ke liye bana hai — demo ya copy-paste template nahi. Filter karke category dekh sakte hain.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Filter projects">
+        <button class="filter active" data-filter="all" type="button">All Work</button>
+        <button class="filter" data-filter="web" type="button">Websites &amp; Cards</button>
+        <button class="filter" data-filter="app" type="button">Web Apps</button>
+        <button class="filter" data-filter="tool" type="button">Tools</button>
+      </div>
+
+      <div class="grid" id="projectGrid">
+        <!-- ShaadiNama -->
+        <article class="card reveal" data-cat="web">
+          <div class="visual v-green">
+            <span class="visual-icon">✦</span>
+            <span class="visual-badge">● Flagship Product</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3>ShaadiNama — Interactive Wedding Cards</h3><span class="year">2026</span></div>
+            <p>Digital wedding invitations jo phone par envelope / wax-seal se khulti hain. Scratch karke date reveal, live countdown, Google Maps venue, wishes wall aur guest ke naam ke saath personalization. 10 ready themes — Nikkah Noor, Valima Velvet, Sahara Noor aur mazeed.</p>
+            <div class="tags"><span class="tag">HTML / CSS / JS</span><span class="tag">Interactive</span><span class="tag">Product</span></div>
+            <a class="card-link" href="mailto:mian91032@gmail.com?subject=ShaadiNama%20card%20chahiye">Apna card banwana hai <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Mughlai -->
+        <article class="card reveal" data-cat="web app">
+          <div class="visual v-food">
+            <span class="visual-icon">▦</span>
+            <span class="visual-badge">● Live on Vercel</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3>Mughlai Food — QR Menu &amp; Ordering</h3><span class="year">2026</span></div>
+            <p>Restaurant ke liye live QR menu website — 66 items, 12 sections. Customer table par QR scan karta hai, cart banata hai aur order seedha WhatsApp par chala jata hai. Home Delivery / Takeaway / Shop par — teeno options ke saath.</p>
+            <div class="tags"><span class="tag">Web App</span><span class="tag">QR Menu</span><span class="tag">WhatsApp Order</span></div>
+            <a class="card-link" href="https://mughlai-food-menu.vercel.app" target="_blank" rel="noopener">Live site dekhein <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- ImageTools -->
+        <article class="card reveal" data-cat="tool">
+          <div class="visual v-tool">
+            <span class="visual-icon">✂</span>
+            <span class="visual-badge">● Live Tool</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3>ImageTools Pro — AI Background Remover</h3><span class="year">2026</span></div>
+            <p>Designers ke liye banaya gaya tool — ek click mein background remove, batch clarity enhancer aur smart resizer. CorelDRAW workflow ke saath specially optimized, taake print ka kaam fast ho. Light liquid-glass interface ke saath live hai.</p>
+            <div class="tags"><span class="tag">Python</span><span class="tag">AI / BiRefNet</span><span class="tag">Web Tool</span></div>
+            <a class="card-link" href="mailto:mian91032@gmail.com?subject=ImageTools%20Pro%20ke%20baare%20mein">Tool ke baare mein poochein <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- VectorStudio -->
+        <article class="card reveal" data-cat="tool">
+          <div class="visual v-slate">
+            <span class="visual-icon">⬡</span>
+            <span class="visual-badge">Desktop Tool</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3>VectorStudio — JPG to Editable Vector</h3><span class="year">2026</span></div>
+            <p>Koi bhi JPG / PNG design lo, fully editable vector banao. SVG, vector PDF aur high-res PNG export — CorelDRAW mein import karke Ctrl+Q se text curves mein badlo aur CDR save karo. Print designers ke roz ke kaam ke liye.</p>
+            <div class="tags"><span class="tag">JavaScript</span><span class="tag">Vector Trace</span><span class="tag">CorelDRAW</span></div>
+            <a class="card-link" href="mailto:mian91032@gmail.com?subject=VectorStudio%20ke%20baare%20mein">Detail chahiye <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Restaurant OS -->
+        <article class="card reveal" data-cat="app">
+          <div class="visual v-gold">
+            <span class="visual-icon">◈</span>
+            <span class="visual-badge">Full System</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3>Restaurant OS — 10-Screen Management System</h3><span class="year">2026</span></div>
+            <p>Ek hi system mein Customer, Waiter, Kitchen aur Owner — kul 10 screens. Order table se kitchen tak live jata hai, bill PKR mein banta hai, owner ko poora hisaab ek jagah milta hai. Commission wala masla khatam.</p>
+            <div class="tags"><span class="tag">Web App</span><span class="tag">Dashboard</span><span class="tag">PKR Billing</span></div>
+            <a class="card-link" href="mailto:mian91032@gmail.com?subject=Restaurant%20system%20chahiye">Apne restaurant ke liye <span>→</span></a>
+          </div>
+        </article>
+
+        <!-- Walima Card -->
+        <article class="card reveal" data-cat="web">
+          <div class="visual v-plum">
+            <span class="visual-icon">❋</span>
+            <span class="visual-badge">● Deployed Live</span>
+          </div>
+          <div class="card-body">
+            <div class="card-top"><h3>Animated Walima Invitation — Live Card</h3><span class="year">2026</span></div>
+            <p>Client ke liye banaya gaya animated Walima card — Royal Marquee, Nankana Sahib ke event ke liye. Add to Calendar se asal .ics file download hoti hai, Maps ka direct link, aur elegant animation ke saath Vercel par live deploy.</p>
+            <div class="tags"><span class="tag">Animated Invite</span><span class="tag">Vercel</span><span class="tag">Client Work</span></div>
+            <a class="card-link" href="https://walima-card-abu-bakar-khan-animated.vercel.app/" target="_blank" rel="noopener">Live card dekhein <span>→</span></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="note reveal"><b>Note:</b> Ye sirf highlights hain. Is ke ilawa Etsy ke liye research tools (eHunt / eRank / listing audit), FlexStudio Pro aur roz ke graphic design ka kaam — ID cards, certificates, bill books, flex designs — bhi portfolio mein shamil hai. Poori list ke liye email kar dein.</div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="kicker">Services</div>
+          <h2>Main kya bana<br>sakta hoon aap ke liye?</h2>
+        </div>
+        <p>Chhota kaam ho ya poora product — pehle baat, phir demo, phir final. Rates kaam dekh kar, koi hidden charges nahi.</p>
+      </div>
+      <div class="services">
+        <div class="svc reveal">
+          <div class="svc-num">01 — MOST POPULAR</div>
+          <h3>Interactive Wedding Cards</h3>
+          <p>Shaadi, Walima, Mehndi, Nikkah — har event ke liye phone-friendly digital card jo guests ko wow kare.</p>
+          <ul>
+            <li>Envelope / wax-seal opening animation</li>
+            <li>Countdown, Maps &amp; Add to Calendar</li>
+            <li>Guest naam ke saath personal link</li>
+            <li>Wishes wall &amp; background music</li>
+          </ul>
+        </div>
+        <div class="svc reveal">
+          <div class="svc-num">02 — FOR BUSINESS</div>
+          <h3>Websites &amp; Web Apps</h3>
+          <p>Shop, restaurant ya service ke liye fast website jo sirf dikhe nahi — order aur customer bhi laye.</p>
+          <ul>
+            <li>QR menu &amp; WhatsApp ordering sites</li>
+            <li>Business / portfolio websites</li>
+            <li>Dashboard &amp; management systems</li>
+            <li>Vercel par live deploy + QR ready</li>
+          </ul>
+        </div>
+        <div class="svc reveal">
+          <div class="svc-num">03 — DESIGN &amp; TOOLS</div>
+          <h3>Graphic Design &amp; Custom Tools</h3>
+          <p>CorelDRAW + Photoshop mein print-ready design, aur roz ke kaam ko fast karne wale custom tools.</p>
+          <ul>
+            <li>Flex, banner, ID card, certificate design</li>
+            <li>Bill book, letter pad, shop branding</li>
+            <li>Background remover &amp; vector tools</li>
+            <li>Print-ready files (CMYK check ke saath)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + STACK -->
+  <section id="about" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <div class="kicker">About &amp; Process</div>
+          <h2>Design pehle,<br>code us ke baad.</h2>
+        </div>
+      </div>
+      <div class="two-col">
+        <div class="panel reveal">
+          <h3>Assalam-o-Alaikum, main Mian Talha hoon 👋</h3>
+          <p style="margin-top:10px">Main ek developer aur graphic designer hoon jo <b style="color:var(--ink)">do duniyaon ko jodta hai</b> — print design (CorelDRAW / Photoshop) aur modern web. Isi liye mere projects sirf screen par ache nahi lagte, asal business mein kaam bhi karte hain: restaurant ka order WhatsApp par aata hai, wedding guest Maps se venue par pohanchta hai, designer ka ghanton ka kaam tool se minutes mein hota hai.</p>
+          <p style="margin-top:12px">Mera usool simple hai — <b style="color:var(--ink)">koi fake demo nahi, koi copied template nahi.</b> Jo dikhata hoon, wohi banata hoon.</p>
+          <div class="chips">
+            <span class="chip">HTML · CSS · JavaScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">CorelDRAW 2025</span>
+            <span class="chip">Adobe Photoshop</span>
+            <span class="chip">Vercel · GitHub</span>
+            <span class="chip">UI / UX</span>
+            <span class="chip">Print Design</span>
+          </div>
+        </div>
+        <div class="panel reveal">
+          <h3>Kaam kaise hota hai?</h3>
+          <div class="process">
+            <div class="step"><span class="step-n">1</span><div><b>Baat-cheet</b><span>Email par apna kaam bata dein — kya chahiye, kab chahiye. Main sawal pooch kar scope clear karunga.</span></div></div>
+            <div class="step"><span class="step-n">2</span><div><b>Demo / Design</b><span>Pehle design ya chhota demo dikhata hoon. Pasand aaye tabhi aage barhte hain.</span></div></div>
+            <div class="step"><span class="step-n">3</span><div><b>Build &amp; Live</b><span>Final cheez bana kar live link / print-ready file deta hoon — test karke, poori tarah check karke.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact reveal">
+        <div class="kicker">Next Project</div>
+        <h2>Koi idea hai?<br>Chalo bana lete hain.</h2>
+        <p>Wedding card, business website, ya koi custom tool — ek email se shuruaat hoti hai. Apne kaam ke baare mein 2–3 lines likh kar bhej dein, main jawab dunga.</p>
+        <div class="contact-actions">
+          <a class="btn btn-white" href="mailto:mian91032@gmail.com?subject=New%20Project%20—%20Portfolio%20se">✉ &nbsp;Email Kar Dein</a>
+          <button class="btn btn-outline" id="copyBtn2" type="button">⧉ &nbsp;Email Copy Karein</button>
+        </div>
+        <div class="contact-mail">
+          <span style="opacity:.7; font-size:13px; font-family:'JetBrains Mono',monospace; letter-spacing:.08em">DIRECT —</span>
+          <a href="mailto:mian91032@gmail.com">mian91032@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>© <span id="yr"></span> <b style="color:var(--ink)">Mian Talha</b> — Developer &amp; Designer · ShaadiNama</p>
+    <p><a href="mailto:mian91032@gmail.com">mian91032@gmail.com</a> &nbsp;·&nbsp; <a href="#top">Back to top ↑</a></p>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite">✓ Email copy ho gaya</div>
+
+<script>
+(function(){
+  var EMAIL = "mian91032@gmail.com";
+  document.getElementById("yr").textContent = new Date().getFullYear();
+
+  function showToast(msg){
+    var t = document.getElementById("toast");
+    t.textContent = msg;
+    t.classList.add("show");
+    setTimeout(function(){ t.classList.remove("show"); }, 2200);
+  }
+  function copyEmail(){
+    function done(){ showToast("✓ Email copy ho gaya — " + EMAIL); }
+    function fallback(){
+      var ta = document.createElement("textarea");
+      ta.value = EMAIL; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand("copy"); done(); }catch(e){ showToast(EMAIL); }
+      document.body.removeChild(ta);
+    }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(EMAIL).then(done).catch(fallback);
+    } else { fallback(); }
+  }
+  var b1=document.getElementById("copyBtn"), b2=document.getElementById("copyBtn2");
+  if(b1) b1.addEventListener("click", copyEmail);
+  if(b2) b2.addEventListener("click", copyEmail);
+
+  // Project filter
+  var filters = document.querySelectorAll(".filter");
+  var cards = document.querySelectorAll("#projectGrid .card");
+  filters.forEach(function(btn){
+    btn.addEventListener("click", function(){
+      filters.forEach(function(b){ b.classList.remove("active"); });
+      btn.classList.add("active");
+      var f = btn.getAttribute("data-filter");
+      cards.forEach(function(card){
+        var cats = (card.getAttribute("data-cat")||"").split(" ");
+        var show = (f==="all" || cats.indexOf(f)!==-1);
+        card.classList.toggle("hidden", !show);
+      });
+    });
+  });
+
+  // Reveal on scroll
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els = document.querySelectorAll(".reveal");
+  if(reduce || !("IntersectionObserver" in window)){
+    els.forEach(function(e){ e.classList.add("in"); });
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); }
+      });
+    }, {threshold:.12});
+    els.forEach(function(e){ io.observe(e); });
+  }
+})();
+</script>
+</body>
+</html>
